@@ -46,11 +46,11 @@ def compute_dynamic_corr(time_course, w=3, s=1):
         # 计算皮尔逊相关
         corr = np.corrcoef(x=time_course[start: end, :], rowvar=False)
         corr = corr.astype(np.float64)
-        if not os.path.exists('test'):
-            os.makedirs('test')
-            io.savemat('./test/test{}.mat'.format(i), {'test{}'.format(i): corr})
+        if not os.path.exists('test_dFC'):
+            os.makedirs('test_dFC')
+            io.savemat('./test_dFC/test{}.mat'.format(i), {'test{}'.format(i): corr})
         else:
-            io.savemat('./test/test{}.mat'.format(i), {'test{}'.format(i): corr})
+            io.savemat('./test_dFC/test{}.mat'.format(i), {'test{}'.format(i): corr})
 
 
 if __name__ == '__main__':
